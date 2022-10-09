@@ -26,7 +26,6 @@ function onSearch(e) {
     API.fetchCountries(searchResult)
       .then(renderCountryList)
       .catch(onFetchError)
-      .finally(() => {});
 }
 
 function renderCountryList(countries) {
@@ -43,6 +42,7 @@ function renderCountryList(countries) {
 	
 	for (let index = 0; index < countries.length; index += 1) {
 		const country = countries[index];
+		
 		markupCountryList += countryCardTpl(country);
 
 		if (countries.length === 1) {
@@ -53,7 +53,12 @@ function renderCountryList(countries) {
 		}
 		
 		createMarkup(markupCountryList, markupCountryInfo);
-    }
+	}
+
+	const spanLanguagesEl = document.querySelector('.languages-list');
+	if (spanLanguagesEl) {
+    	spanLanguagesEl.textContent = spanLanguagesEl.textContent.slice(0, -2);
+	}
 }
 
 function createMarkup(markupList, markupInfo) {
