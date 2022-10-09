@@ -1,7 +1,8 @@
-<p class='capital'>Capital: {{capital}}</p>
-<p class='population'>Population: {{population}}</p>
-<ul class='languages'>
-	{{#each languages}}
-	<li>{{languages.key}}</li>
-	{{/each}}
-</ul>
+<p class='capital'><span class="bolw">Capital:</span> {{capital}}</p>
+<p class='population'><span class="bolw">Population:</span> {{population}}</p>
+<p class='languages'><span class="bolw">Languages:</span> 
+{{#each languages}}
+    {{this}},
+{{/each}}
+</p>
+
